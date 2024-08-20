@@ -10,12 +10,26 @@ pipeline
       git branch: 'feature1', url: 'https://github.com/satish0587/MultiBranch.git'
      }
     }
-   stage("checkforakeyword")
+   stage("check-the-sourcecode")
    {
     steps
     {
-     sh 'cat index.html | grep -i healthcare' 
+     sh 'mvn compile'
     }
    }
+     stage("run-test-case")
+     {
+       steps
+       {
+         sh 'mvn test'
+       }
+     }
+     stage("create-the-package")
+     {
+       steps
+       {
+         sh 'mvn package'
+       }
+     }       
   }
 }
