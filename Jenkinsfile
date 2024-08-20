@@ -14,7 +14,7 @@ pipeline
    {
     steps
     {
-     sh 'cat contact.html | grep -i wealth'
+     sh 'cat contact.html | grep -i appointment'
     }
    }
   }
